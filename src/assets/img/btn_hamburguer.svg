@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="46" height="35" viewBox="0 0 46 35">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #333;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="btn_hamburguer.svg" class="cls-1" d="M28.763,108.474H69.237a2.763,2.763,0,1,1,0,5.526H28.763A2.763,2.763,0,1,1,28.763,108.474ZM28.75,93.452h40.5a2.75,2.75,0,1,1,0,5.5H28.75A2.75,2.75,0,1,1,28.75,93.452ZM28.763,79H69.237a2.763,2.763,0,1,1,0,5.526H28.763A2.763,2.763,0,1,1,28.763,79Z" transform="translate(-26 -79)"/>
+</svg>

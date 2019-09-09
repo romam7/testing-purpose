@@ -1,0 +1,18 @@
+@import "~ng-pick-datetime/assets/style/picker.min.css";
+/**
+ * Se sobreescriben los estilos de algunos componentes (paginación, calendario, mapa)
+ */
+
+pagination-controls .ngx-pagination li.current {
+    background: #ffcd00 !important;
+    font-weight: bold;
+}
+
+.owl-dt-calendar-cell-selected{
+    font-weight: bold !important;
+    color:#67656f !important;
+}
+
+agm-map {
+    height: 300px;
+}

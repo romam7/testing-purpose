@@ -1,0 +1,37 @@
+<div id="principal" class="page">
+
+  <!-- Header component-->
+  <app-header></app-header>
+
+  <!--Breadcrumb que indica el nombre de la página actual-->
+  <div class="clear"></div>
+  <div class="title" id="title">
+    <div class="wrapper">
+      <div class="h2">
+        <a aria-label="titulo-breadcrumb">{{ comun.RECURSOS.MENU.portalSocioMAS }}</a>
+      </div><br>
+      <h1>{{ comun.tituloPagina }}</h1>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <!-- Menu component-->
+  <app-menu></app-menu>
+
+  <!-- Contenido -->
+  <router-outlet></router-outlet>
+
+  <!-- Footer-->
+  <div class="footer">
+    <table class="tblFooter">
+      <tbody>
+        <tr>
+          <td>
+            <b><a aria-label="correo" href="mailto:{{ correo }}">{{ correo }}</a></b>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <br>
+  <div class="clear"></div>
+</div>

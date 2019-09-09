@@ -1,0 +1,446 @@
+@import url('fonts.css');
+/* general */
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.tCenter {
+  text-align: center !important;
+}
+
+.proximamente {
+  font-size: 1000%;
+  position: absolute;
+  top: 40%;
+  left: 20%;
+  height: 30%;
+  width: 50%;
+}
+
+.fRight {
+  float: right !important;
+}
+
+.fLeft {
+  float: left !important;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.clear {
+  clear: both;
+}
+
+/* scroll */
+
+*::-webkit-scrollbar {
+  width: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: #f3f3f3;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #afafaf;
+}
+
+.scroll {
+  overflow: auto;
+}
+
+.scroll::-webkit-scrollbar {
+  height: 5px;
+}
+
+.scroll::-webkit-scrollbar-track {
+  background-color: #afafaf;
+}
+
+.scroll1 {
+  overflow: auto;
+  height: 130px;
+}
+
+.scroll1::-webkit-scrollbar {
+  width: 5px;
+}
+
+.scroll1::-webkit-scrollbar-track {
+  background-color: #ff0000;
+}
+
+html, body {
+  font-family: 'Avenir_Next_Regular';
+  background-color: #ffffff;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 14px;
+  color: #8a8a8a;
+  min-width: 330px;
+  height: 100%;
+}
+
+.page {
+  margin-bottom: 60px;
+  min-width: 330px;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*Header*/
+
+.header {
+  padding: 5px 0;
+  background-color: #FFFFFF;
+  border-bottom: solid 2px #ffcd00;
+  width: 100%;
+  height: 40px;
+  color: #333;
+}
+
+.tblHeader {
+  width: 99%;
+  display: table;
+}
+
+.headerMenu {
+  margin: auto;
+  float: left;
+}
+
+.headerLogo {
+  width: 130px;
+  margin: auto;
+}
+
+.headerUser {
+  /* width: 500px; */
+  /* margin: auto; */
+  /* position: absolute; */
+  float: right;
+  margin-top: -65px;
+  text-align: right;
+  margin-right: 10px;
+  font-size: 13px;
+  line-height: 15px;
+  vertical-align: middle;
+}
+
+.imageUserHeader {
+  width: 40px;
+  height: 45px;
+  border-radius: 48%;
+  margin-top: 14px;
+  margin-left: 10px;
+}
+
+.headerLogo {
+  text-align: center;
+}
+
+.imgHamburgesa {
+  padding: 10px 19px 15px 15px;
+  width: 21px;
+  height: 20px;
+  transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+}
+
+img#imgLogo {
+  width: 100px;
+  height: 45px;
+  padding: 0px 0px 0px 0px;
+}
+
+.fotoEmpleadoEditar {
+  width: 45px;
+  height: 50px;
+  float: right;
+  margin-top: -26px;
+}
+
+.instrucNotificacion {
+  text-align: justify;
+}
+
+.inputNotificacion {
+  width: 50% !important;
+}
+
+.textAreaNotificacion {
+  width: 80% !important;
+}
+
+.marginR {
+  margin-right: 3px;
+}
+
+.anchoTd {
+  width: 100px !important;
+}
+
+/** LOADER MODAL **/
+
+.loading-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.loading {
+  height: 189px;
+  width: 189px;
+  position: relative;
+  margin: 0 15px 15px 0;
+  padding: 15px;
+  border: 1px #ccc solid;
+  border-radius: 4px;
+}
+
+.loading p {
+  margin: 0 0 10px 0;
+}
+
+.custom-class {
+  top: 0;
+  z-index: 2002;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #000000ba;
+  border-radius: 3px;
+}
+
+.custom-class h3 {
+  color: white;
+}
+
+.displayDestinatarios {
+  display: inline !important;
+}
+
+/**END LOADER */
+
+div.name, div.pic-name, div.user-menu, div.fecha {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+div.pic-name {
+  position: relative;
+}
+
+div.name {
+  margin-top: 19px;
+}
+
+.textoLogin {
+  margin-top: 29px;
+  font-size: 16px;
+  font-family: 'Avenir_Next_Demi_Bold';
+}
+
+.textoLogin a {
+  color: #67656f;
+  text-decoration: none;
+}
+
+div.name b {
+  font-family: 'Avenir_Next_Demi_Bold';
+}
+
+div.pic {
+  display: block;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  margin: 0 0 0 10px;
+  background: #FFFFFF no-repeat center center;
+  border: solid 2px #B9B7AC;
+  border-radius: 50%;
+  background-size: 80%;
+  margin-top: 12px;
+}
+
+div.pic-name span {
+  display: block;
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  top: 14px;
+  right: -10px;
+  background: #ffcd00;
+  color: #000;
+  line-height: 17px;
+  border-radius: 50%;
+  font-size: 9px;
+}
+
+.user-menu {
+  margin-top: 15px;
+  margin-left: 5px;
+}
+
+.fecha {
+  margin: 14px 0px 0px 10px;
+  font-size: 14px;
+}
+
+.fecha span {
+  font-size: 10.2px;
+}
+
+/*Titulo*/
+
+div.title {
+  background-color: #f9f9f9;
+  padding: 0px 0 6px 0px;
+  height: 50px;
+}
+
+#title div {
+  font-size: 5px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding-top: 2px;
+}
+
+div.title .wrapper {
+  position: relative;
+  width: 90%;
+  margin-left: 2%;
+}
+
+.divlupa {
+  margin-top: 15px;
+  text-align: right;
+  float: right !important;
+  margin-right: 5%;
+}
+
+div.title div.h2 a {
+  color: #7E7E7E;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+div.title h1 {
+  font-size: 30px;
+  color: #43413B;
+  font-weight: 800;
+  line-height: 22px;
+}
+
+div.nav {
+  padding: 0px;
+}
+
+div.nav div.wrapper {
+  position: relative;
+}
+
+.footer {
+  width: 100%;
+  height: 60px;
+  /*47px*/
+  background-color: #f8f7f7;
+  bottom: 0px;
+  position: fixed;
+  text-align: center;
+}
+
+.tblFooter {
+  font-size: 12px;
+  margin: 10px;
+  text-align: center;
+  margin: 11px auto;
+  width: 400px;
+}
+
+.tblFooter tr td:nth-child(1) {
+  padding: 10px 0;
+  font-size: 1.1em;
+}
+
+.tblFooter tr td:nth-child(1) a {
+  text-decoration: none;
+  color: #333333;
+}
+
+.invalid {
+  border: 1px solid #f00 !important;
+}
+
+@media screen and (max-width: 1024px) {
+  .headerLogo {
+    text-align: left;
+    padding: 0px 0px 0px 24px;
+  }
+  .headerUser {
+    text-align: right;
+  }
+}
+
+@media screen and (max-width:900px) {
+  div.fecha {
+    display: none;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .headerLogo {
+    width: 253px;
+    margin-top: -1px;
+  }
+  .headerUser {
+    font-size: 10px;
+  }
+  img#imgLogo {
+    width: 110px;
+    padding: 3px 0px 0px 0px;
+  }
+}
+
+@media screen and (max-width:500px) {
+  .headerLogo {
+    margin-top: -3px;
+  }
+  .name {
+    visibility: hidden;
+  }
+  #imgLogo {
+    margin-left: 20%;
+  }
+}
+
+@media screen and (max-width:500px) {
+  .headerLogo {
+    padding: 0px 0px 0px 5px;
+  }
+  img#imgLogo {
+    width: 114px;
+    padding: 3px 0px 0px 0px;
+  }
+  div.title h1 {
+    font-size: 22px;
+    line-height: 24px;
+  }
+  div.pic {
+    width: 35px;
+    height: 35px;
+    margin-top: 19px;
+  }
+}

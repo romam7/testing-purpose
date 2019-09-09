@@ -1,0 +1,110 @@
+<div class="contSecc">
+  <div class="botones">
+    <input type="text" aria-label="nombreEmpleadoFiltro" class="buscarEmpleado" [(ngModel)]="nombreEmpleadoFiltro" name="nombreEmpleadoFiltro"
+      placeholder="{{ comun.RECURSOS.LISTAR.buscarEmpleados }}" (keydown)="buscarEmpleado($event)" maxlength="50"
+      (change)="nombreEmpleadoFiltro = nombreEmpleadoFiltro.trim()"
+      [disabled]="comun.loading || comun.cargandoPrincipal"
+      (input)="limpiarResultados($event.target.value);" autofocus>
+  </div>
+
+  <div class="clear"></div>
+  <h3 class="tCenter" *ngIf="!(empleadosFiltro.empleados && empleadosFiltro.empleados.length); else tabla">
+    <br>
+    {{ comun.RECURSOS.LISTAR.instruccionesBuscar }}
+  </h3>
+
+  <ng-template #customLoadingTemplate>
+    <div class="custom-class">
+      <h3>
+        {{ cargandoTexto }}
+        <br><br><br><br>
+      </h3>
+      <button class="btn btnV" (click)="cancelarCarga()">
+        {{ comun.RECURSOS.COMUNES.cancelar }}
+      </button>
+    </div>
+  </ng-template>
+  <ngx-loading [show]="comun.loading" [template]="comun.loadingTemplate"></ngx-loading>
+
+  <ng-template #tabla>
+    <div class="clear"></div>
+    <div class="scroll">
+      <table class="tblGeneral">
+        <tbody>
+          <tr>
+            <th></th>
+            <th><b>No. empleado</b></th>
+            <th><b>Nombre</b></th>
+            <th><b>Teléfono</b></th>
+            <th><b>Puesto</b></th>
+            <th><b>Ceco</b></th>
+            <th><b>Empresa</b></th>
+            <th><b>Perfil</b></th>
+            <th><b>Jefe</b></th>
+            <th><b>Estatus</b></th>
+            <th><b>Usuario SocioMAS</b></th>
+            <th></th>
+          </tr>
+          <tr *ngFor="let empleado of empleadosFiltro.empleados; trackBy: comun.trackPorEmpleado | paginate: comun.configPaginacion">
+            <td class="anchoTd">
+              <img src="./assets/img/user.jpg" alt="{{ empleado.nombre }}" style="width: 45px; height: 50px;">
+            </td>
+            <td [ngClass]="{'selectedRow': empleado.numeroEmpleado === empleadoEditado}">{{ empleado.numeroEmpleado }}
+            </td>
+            <td [ngClass]="{'selectedRow': empleado.numeroEmpleado === empleadoEditado}">
+              {{ empleado.nombre | uppercase }}</td>
+            <td [ngClass]="{'selectedRow': empleado.numeroEmpleado === empleadoEditado}">{{ empleado.numeroTelefono }}
+            </td>
+            <td [ngClass]="{'selectedRow': empleado.numeroEmpleado === empleadoEditado}">
+              {{ empleado.puesto | uppercase }}</td>
+            <td [ngClass]="{'selectedRow': empleado.numeroEmpleado === empleadoEditado}">{{ empleado.ceco }}</td>
+            <td [ngClass]="{'selectedRow': empleado.numeroEmpleado === empleadoEditado}">{{ empleado.idEmpresa }}</td>
+            <td [ngClass]="{'selectedRow': empleado.numeroEmpleado === empleadoEditado}">
+              {{ (empleado.idPerfil == 0) ? 'Corporativo' : 'Geografía' }}</td>
+            <td [ngClass]="{'selectedRow': empleado.numeroEmpleado === empleadoEditado}">{{ empleado.idSupervisor }}
+            </td>
+            <td [ngClass]="{'selectedRow': empleado.numeroEmpleado === empleadoEditado}">
+              {{ (empleado.estatus == 1) ? 'Activo' : 'Inactivo' }}</td>
+            <td *ngIf="empleado.usuarioSM; else noUsuario;"
+              [ngClass]="{'selectedRow': empleado.numeroEmpleado === empleadoEditado}">
+              SI
+            </td>
+            <ng-template #noUsuario>
+              <td>NO</td>
+            </ng-template>
+            <td>
+              <a aria-label="link-editar-emp" *ngIf="empleado.estatus != 0 && empleado.usuarioSM" class="float-right btnEditar"
+                (click)="showModal('modalEditarEmpleado', empleado)"
+                title="{{ comun.RECURSOS.LISTAR.titleEditarInformacion }}"></a>
+
+              <a aria-label="link-desac-emp" *ngIf="empleado.estatus == 1 && empleado.usuarioSM" class="float-right btnEliminar"
+                (click)="showModal('modalDesactivarEmpleado', empleado)"
+                title="{{ comun.RECURSOS.LISTAR.titleDesactivar }}"></a>
+              <a aria-label="link-act-emp" *ngIf="empleado.estatus == 0 && empleado.usuarioSM" class="float-right btnReactivar"
+                (click)="showModal('modalReactivarEmpleado', empleado)"
+                title="{{ comun.RECURSOS.LISTAR.titleActivar }}"></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="tCenter">
+        <pagination-controls (pageChange)="pageChanged($event)" directionLinks="true" autoHide="true" responsive="true"
+          previousLabel="{{ comun.RECURSOS.LISTAR.paginaAnterior }}"
+          nextLabel="{{ comun.RECURSOS.LISTAR.paginaSiguiente }}"></pagination-controls>
+      </div>
+    </div>
+  </ng-template>
+  <div class="clear"></div>
+</div>
+<div class="clear"></div>
+
+<app-reactiva-desactiva-usuario [settings]="configuracionDesactivar"
+  (okFunction)="activarDesactivarEmpleado(empleadoSeleccionado, 0)" #desactivarEmpleadoModalViewChild>
+</app-reactiva-desactiva-usuario>
+<app-reactiva-desactiva-usuario [settings]="configuracionReactivar"
+  (okFunction)="activarDesactivarEmpleado(empleadoSeleccionado, 1)" #reactivarEmpleadoModalViewChild>
+</app-reactiva-desactiva-usuario>
+<app-editar-usuario [settings]="configuracionEdicion" (okFunction)="detectaEmpleadoEditado($event)"
+  #editarEmpleadoModalViewChild></app-editar-usuario>
+<br>
+<div class="clear"></div>

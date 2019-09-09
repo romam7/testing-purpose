@@ -1,0 +1,72 @@
+<ng-template #customLoadingTemplate>
+    <div class="custom-class">
+        <h3>
+            {{ cargandoTexto }}
+            <br><br><br><br>
+        </h3>
+        <button class="btn btnV" (click)="comun.cancelarCarga(suscriptor)">
+            {{ comun.RECURSOS.COMUNES.cancelar }}
+        </button>
+    </div>
+</ng-template>
+<ngx-loading [show]="comun.loading" [template]="comun.loadingTemplate"></ngx-loading>
+<div id="{{ settings.idModal }}" class="modal">
+    <!-- Modal -->
+    <div class="cuadroCh">
+        <a aria-label="link-cerrar-pos" class="pointerClose" (click)="closeModal()">
+            <img src="./assets/img/cerrar.png" class="cerrar" alt="">
+        </a>
+        <div class="titModal"><b>{{ settings.title }}</b></div>
+        <div class="clear"></div><br>
+
+        <div class="tCenter">
+            <form [formGroup]="posicionFormGroup" (ngSubmit)="registraActualizaPosicion()" class="scrollY">
+                <div class="titSecConductor">
+                    {{ comun.RECURSOS.UBICACIONES.datosPoi }}
+                </div>
+                <div class="gris tCenter">
+                    <div class="contG">
+                        <div class="div40" *ngIf="posicionElegida.numeroPosicion">
+                            <input aria-label="numeroPosicion" type="text" formControlName="numeroPosicion" required [attr.disabled]="posicionElegida.numeroPosicion !== ''" readonly>
+                            <br>{{ comun.RECURSOS.UBICACIONES.tagNumeroPos }}<br>
+                        </div>
+
+                        <div class="div40">
+                            <input aria-label="nombrePosicion" type="text" formControlName="nombrePosicion" required
+                                [ngClass]="{'invalid': (posicionFormGroup.get('nombrePosicion').touched || posicionFormGroup.get('nombrePosicion').dirty) && posicionFormGroup.get('nombrePosicion').errors }">
+                            <br>{{ comun.RECURSOS.UBICACIONES.tagNombrePos }}<br>
+                        </div>
+
+                        <div class="div40">
+                            <input aria-label="latitud" type="number" formControlName="latitud"
+                                [ngClass]="{'invalid': (posicionFormGroup.get('latitud').touched || posicionFormGroup.get('latitud').dirty) && posicionFormGroup.get('latitud').errors }">
+                            <br>{{ comun.RECURSOS.UBICACIONES.tagLatitud }} <br>
+                        </div>
+
+                        <div class="div40">
+                            <input aria-label="longitud" type="number" formControlName="longitud"
+                                [ngClass]="{'invalid': (posicionFormGroup.get('longitud').touched || posicionFormGroup.get('longitud').dirty) && posicionFormGroup.get('longitud').errors }">
+                            <br>{{ comun.RECURSOS.UBICACIONES.tagLongitud }} <br>
+                        </div>
+
+                        <div class="div40">
+                            <input aria-label="rangoAceptado" type="number" formControlName="rangoAceptado" appSoloNumeros="30"
+                                [ngClass]="{'invalid': (posicionFormGroup.get('rangoAceptado').touched || posicionFormGroup.get('rangoAceptado').dirty) && posicionFormGroup.get('rangoAceptado').errors }">
+                            <br>{{ comun.RECURSOS.UBICACIONES.tagRango }} <br>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <br>
+                <div class="botones">
+                    <button class="btn btnG btnCancelar" type="reset"
+                        (click)="closeModal()">{{ comun.RECURSOS.COMUNES.cancelar }}</button>
+                    <button class="btn btnV btnGuardar" type="submit"
+                        [ngClass]="{'desac':!posicionFormGroup.valid }">{{ settings.textoBoton }}</button>
+                </div>
+                <div class="clear"></div>
+                <br>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,90 @@
+<ng-template #customLoadingTemplate>
+    <div class="custom-class">
+        <h3>
+            {{ cargandoTexto }}
+            <br><br><br><br>
+        </h3>
+        <button class="btn btnV" (click)="comun.cancelarCarga(suscriptor)">
+            {{ comun.RECURSOS.COMUNES.cancelar }}
+        </button>
+    </div>
+</ng-template>
+<ngx-loading [show]="comun.loading" [template]="comun.loadingTemplate"></ngx-loading>
+<div id="{{ settings.idModal }}" class="modal">
+    <!-- Modal -->
+    <div class="cuadroCh">
+        <a aria-label="link-cerrar-cond" class="pointerClose" (click)="closeModal()">
+            <img src="./assets/img/cerrar.png" class="cerrar" alt="">
+        </a>
+        <div class="titModal"><b>{{ settings.title }}</b></div>
+        <div class="clear"></div><br>
+
+        <div class="tCenter">
+            <form [formGroup]="conductorFormGroup" (ngSubmit)="registrarConductor()" class="scrollY">
+                <div class="titSecConductor">
+                    {{ comun.RECURSOS.TRANSPORTE.datosConductor }}
+                </div>
+                <div class="gris tCenter">
+                    <div class="contG">
+                        <div class="div40">
+                            <input aria-label="idEmpleado" type="text" formControlName="idEmpleado" (keydown)="onKeydown($event)"
+                                list="conductores-list" autocomplete="off" required appSoloNumeros maxlength="30"
+                                (focus)="comun.creaAlertaInfo(comun.RECURSOS.TRANSPORTE.msjInstruccionBuscar)"
+                                (change)="onSelectConductor($event.target.value)"
+                                [ngClass]="{'invalid': (conductorFormGroup.get('idEmpleado').touched || conductorFormGroup.get('idEmpleado').dirty) && conductorFormGroup.get('idEmpleado').errors}" />
+                            <datalist id="conductores-list"
+                                *ngIf="empleadosBuscar.empleados.length !== undefined && empleadosBuscar.empleados.length != 0; else noEncontrado">
+                                <option class="cursor" *ngFor="let conductor of empleadosBuscar.empleados" [value]="conductor.numeroEmpleado">
+                                    {{ conductor.nombre }}
+                                </option>
+                            </datalist>
+                            <br>{{ comun.RECURSOS.EDITAR_EMP.tagNoEmpleado }}<br>
+                            <ng-template #noEncontrado>
+                                <label class="txtRojo"
+                                    *ngIf="mensajeNoEncontrado != ''">{{ mensajeNoEncontrado }}</label>
+                            </ng-template>
+                        </div>
+
+                        <div class="div40">
+                            <input aria-label="noLicencia" type="text" formControlName="noLicencia" required maxlength="15" #input [value]="input.value.toUpperCase()"
+                                [ngClass]="{'invalid': (conductorFormGroup.get('noLicencia').touched || conductorFormGroup.get('noLicencia').dirty) && conductorFormGroup.get('noLicencia').errors }">
+                            <br>{{ comun.RECURSOS.TRANSPORTE.tagNoLicencia }}<br>
+                        </div>
+
+                        <div class="div40">
+                            <input aria-label="vigencia" type="text" formControlName="vigencia" appSoloNumeros maxlength="4"
+                                [ngClass]="{'invalid': (conductorFormGroup.get('vigencia').touched || conductorFormGroup.get('vigencia').dirty) && conductorFormGroup.get('vigencia').errors }">
+                            <br>{{ comun.RECURSOS.TRANSPORTE.tagVigencia }} <br>
+                        </div>
+
+                        <div class="div40">
+                            <div class="dropdown">
+                                <select required formControlName="estatusConductor"
+                                    [ngClass]="{'invalid': (conductorFormGroup.get('estatusConductor').touched || conductorFormGroup.get('estatusConductor').dirty) && conductorFormGroup.get('estatusConductor').errors}">
+                                    <option *ngIf="!(estatusConductores && estatusConductores.length)">
+                                        {{ comun.RECURSOS.COMUNES.headerSinRegistros }}</option>
+                                    <option *ngIf="estatusConductores && estatusConductores" value="" disabled selected>
+                                        {{ comun.RECURSOS.TRANSPORTE.tagSeleccionaEstatus }}
+                                    </option>
+                                    <option class="cursor" *ngFor="let estatus of estatusConductores"
+                                        [value]="estatus.idEstatus">{{ estatus.descripcion }}
+                                    </option>
+                                </select>
+                            </div>{{ comun.RECURSOS.TRANSPORTE.tagEstatus }}
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <br>
+                <div class="botones">
+                    <button class="btn btnG btnCancelar" type="reset"
+                        (click)="closeModal()">{{ comun.RECURSOS.COMUNES.cancelar }}</button>
+                    <button class="btn btnV btnGuardar" type="submit"
+                        [ngClass]="{'desac':!conductorFormGroup.valid }">{{ comun.RECURSOS.COMUNES.agregar }}</button>
+                </div>
+                <div class="clear"></div>
+                <br>
+            </form>
+        </div>
+    </div>
+</div>

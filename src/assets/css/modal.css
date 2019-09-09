@@ -1,0 +1,237 @@
+div.modal {
+    display: none;
+}
+
+/* Overlay */
+
+#simplemodal-overlay {
+    background-color: #fff;
+}
+
+/* Container */
+
+.simplemodal-header {
+    text-align: center;
+    background-color: #1D4E8A;
+    color: #FFFFFF;
+    padding: 8px;
+    font-size: 14px;
+}
+
+#simpldemodal-container {
+    width: 550px;
+    *width: 620px;
+    margin: 0 auto;
+    background-color: #FFFFFF;
+    border: 1px solid #AAB7CE;
+    border-radius: 3px;
+    font-size: 11px;
+}
+
+.simplemodal-body {
+    padding: 10px;
+}
+
+div.checks div {
+    margin-bottom: 10px;
+}
+
+.modal div.H1 {
+    width: 94.1%;
+    background-color: #ffd51d;
+    color: #737373;
+    font-size: 18px;
+    /* text-align: center; */
+    line-height: 30px;
+    height: 30px;
+    /* border-bottom: 1px solid #116340; */
+    margin: auto;
+    margin-top: -46px;
+    text-align: left;
+    padding: 10px 0px 10px 6%;
+}
+
+.modal div.padding {
+    margin: 15px;
+    text-align: center;
+    font-size: 16px;
+    width: 85%;
+    margin: auto
+}
+
+.modal div.right {
+    margin: 15px;
+    text-align: justify;
+    font-size: 16px;
+    width: 85%;
+    margin: auto
+}
+
+.left {
+    text-align: left;
+}
+
+.cuadro {
+    width: 900px;
+    margin: 0 auto;
+    background-color: #FFFFFF;
+    border-radius: 1px;
+    text-align: right;
+    border: 1px solid #E0E0DE;
+    -moz-box-shadow: 0px 0px 11px rgb(204, 202, 202);
+    -webkit-box-shadow: 0px 0px 11px rgb(204, 202, 202);
+    box-shadow: 0px 0px 11px rgb(204, 202, 202);
+    margin-top: -15%;
+}
+
+.cuadroG {
+    width: 990px;
+    margin: 0 auto;
+    background-color: #FFFFFF;
+    border-radius: 1px;
+    text-align: right;
+    border: 1px solid #E0E0DE;
+    -moz-box-shadow: 0px 0px 11px rgb(204, 202, 202);
+    -webkit-box-shadow: 0px 0px 11px rgb(204, 202, 202);
+    box-shadow: 0px 0px 11px rgb(204, 202, 202);
+}
+
+.cuadroM {
+    width: 800px;
+    margin: -25% auto;
+    background-color: #FFFFFF;
+    border-radius: 1px;
+    text-align: right;
+    border: 1px solid #E0E0DE;
+    -moz-box-shadow: 0px 0px 11px rgb(204, 202, 202);
+    -webkit-box-shadow: 0px 0px 11px rgb(204, 202, 202);
+    box-shadow: 0px 0px 11px rgb(204, 202, 202);
+}
+
+.cuadroCh {
+    width: 500px;
+    margin: 0 auto;
+    background-color: #FFFFFF;
+    border-radius: 1px;
+    text-align: right;
+    border: 1px solid #E0E0DE;
+    -moz-box-shadow: 0px 0px 11px rgb(204, 202, 202);
+    -webkit-box-shadow: 0px 0px 11px rgb(204, 202, 202);
+    box-shadow: 0px 0px 11px rgb(204, 202, 202);
+}
+
+.pointerClose {
+    cursor: pointer;
+}
+
+.cuadro.slim {
+    width: 350px;
+    *width: 620px;
+    text-align: right
+}
+
+.modificar_view {
+    text-decoration: none;
+    color: #3B3B3B;
+    cursor: pointer;
+}
+
+.goright {
+    text-align: center;
+    height: 50px;
+}
+
+.titulo {
+    text-align: center;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.cerrar {
+    padding: 0px 0px 10px 10px;
+    width: 23px;
+}
+
+.titModal {
+    border-bottom: 2px solid #67656f;
+    padding: 11px 10px 2px 0px;
+    font-size: 19px;
+    text-align: left;
+    width: 94%;
+    margin: auto;
+    margin-top: -37px;
+}
+
+.espacio {
+    margin-bottom: 5px;
+}
+
+.modEstacion1 {
+    width: 90%;
+    margin: auto;
+}
+
+@media screen and (max-width: 1024px) {
+    .cuadro {
+        width: 800px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .cuadroM {
+        width: 700px;
+    }
+}
+
+@media screen and (max-width: 800px) {}
+
+@media screen and (max-width: 730px) {
+    .cuadroM {
+        width: 600px;
+    }
+    .div23 {
+        width: 31%;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .cuadro {
+        width: 500px;
+    }
+    .cuadroM {
+        width: 500px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .cuadro {
+        width: 400px;
+    }
+    .cuadroM {
+        width: 400px;
+    }
+    .div23 {
+        width: 48%;
+    }
+    .cuadroCh {
+        width: 300px;
+        padding: 0px 0px;
+        font-size: 12px;
+    }
+    a.btnR, a.btnG {
+        padding: 0px 3px;
+        width: 120px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .cuadro {
+        width: 320px;
+    }
+    .cuadroM {
+        width: 320px;
+    }
+    .div23 {
+        width: 98%;
+    }
+}

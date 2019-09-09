@@ -1,0 +1,50 @@
+<div class="contSecc">
+    <div class="botones">
+        <input aria-label="numeroEmpleado" type="text" class="buscarEmpleado" [(ngModel)]="numeroEmpleado"
+            (keydown)="consultarUbicaciones($event)" placeholder="{{ comun.RECURSOS.MARCAJES.placeholderNoEmpleado }}"
+            appSoloNumeros maxlength="30" [disabled]="comun.loading || comun.cargandoPrincipal" autofocus>
+    </div>
+
+    <div class="clear"></div>
+    <h3 class="tCenter"
+        *ngIf="!(ubicacionesEmpleado.ubicaciones && ubicacionesEmpleado.ubicaciones.length); else tabla">
+        <br>
+        {{ comun.RECURSOS.MARCAJES.instruccionesBuscar }}
+    </h3>
+
+    <ng-template #customLoadingTemplate>
+        <div class="custom-class">
+            <h3>
+                {{ cargandoTexto }}
+                <br><br><br><br>
+            </h3>
+            <button class="btn btnV" (click)="cancelarCarga()">
+                {{ comun.RECURSOS.COMUNES.cancelar }}
+            </button>
+        </div>
+    </ng-template>
+    <ngx-loading [show]="comun.loading" [template]="comun.loadingTemplate"></ngx-loading>
+
+    <ng-template #tabla>
+        <div class="clear"></div>
+        <div class="scroll">
+            <table class="tblGeneral1">
+                <tbody>
+                    <tr>
+                        <th><b>Posición</b></th>
+                        <th><b>Latitud</b></th>
+                        <th><b>Longitud</b></th>
+                    </tr>
+                    <tr *ngFor="let marcaje of ubicacionesEmpleado.ubicaciones" class="altoFilaTr">
+                        <td>{{ marcaje.nombrePosicion }}</td>
+                        <td>{{ marcaje.latitud }}</td>
+                        <td>{{ marcaje.longitud }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </ng-template>
+</div>
+<div class="clear"></div>
+<br>
+<div class="clear"></div>

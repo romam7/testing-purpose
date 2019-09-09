@@ -1,0 +1,82 @@
+<div class="contSecc">
+    <div class="botones">
+        <input aria-label="numeroEmpleado" type="text" class="buscarEmpleadoMarcaje" [(ngModel)]="numeroEmpleado"
+            placeholder="{{ comun.RECURSOS.MARCAJES.placeholderNoEmpleado }}"
+            [disabled]="comun.loading || comun.cargandoPrincipal" appSoloNumeros maxlength="30"
+            (ngModelChange)="aceptar(fechaInicio, fechaFin, numeroEmpleado)" autofocus>
+        <div class="div5">
+            <input aria-label="fechaInicio" required type="text" [(ngModel)]="fechaInicio" [owlDateTime]="dt1" readonly [max]="today"
+                [owlDateTimeTrigger]="dt1" class="datapicker1" placeholder="Fecha inicio"
+                (ngModelChange)="aceptar(fechaInicio, fechaFin, numeroEmpleado)">
+            <owl-date-time [pickerType]="'calendar'" #dt1></owl-date-time>
+        </div>
+        <div class="div5">
+            <input aria-label="fechaFin" required type="text" [(ngModel)]="fechaFin" [owlDateTime]="dt2" [max]="today" readonly
+                [owlDateTimeTrigger]="dt2" class="datapicker1"
+                (ngModelChange)="aceptar(fechaInicio, fechaFin, numeroEmpleado)" placeholder="Fecha fin">
+            <owl-date-time [pickerType]="'calendar'" #dt2></owl-date-time>
+        </div>
+    </div>
+
+    <div class="clear"></div>
+    <h3 class="tCenter" *ngIf="!(listaMarcajes.marcajes && listaMarcajes.marcajes.length); else tabla">
+        <br>
+        {{ comun.RECURSOS.MARCAJES.instruccionesBuscar }}
+    </h3>
+
+    <ng-template #customLoadingTemplate>
+        <div class="custom-class">
+            <h3>
+                {{ cargandoTexto }}
+                <br><br><br><br>
+            </h3>
+            <button class="btn btnV" (click)="cancelarCarga()">
+                {{ comun.RECURSOS.COMUNES.cancelar }}
+            </button>
+        </div>
+    </ng-template>
+    <ngx-loading [show]="comun.loading" [template]="comun.loadingTemplate"></ngx-loading>
+
+    <ng-template #tabla>
+        <div class="clear"></div>
+        <div class="scroll">
+            <table class="tblGeneral">
+                <tbody>
+                    <tr>
+                        <th><b>ID</b></th>
+                        <th><b>Empleado</b></th>
+                        <th><b>Fecha sistema</b></th>
+                        <th><b>Fecha dispositivo</b></th>
+                        <th *ngIf="mostrarColumna"><b>Zona horaria</b></th>
+                        <th><b>Ubicación</b></th>
+                        <th><b>Tipo marcaje</b></th>
+                        <th><b>Tipo Registro</b></th>
+                        <th><b>Bateria</b></th>
+                    </tr>
+                    <tr *ngFor="let marcaje of listaMarcajes.marcajes | paginate: comun.configPaginacion"
+                        class="altoFilaTr">
+                        <td>{{ marcaje.idConsecutivo }}</td>
+                        <td>{{ marcaje.numeroEmpleado }} - {{ marcaje.nombreEmpleado }} </td>
+                        <td>{{ marcaje.fechaReporte }}</td>
+                        <td>{{ marcaje.fecha }}</td>
+                        <td *ngIf="mostrarColumna">{{ marcaje.zonaHorario }}</td>
+                        <td (click)="mostrarMapa(marcaje.latitud, marcaje.longitud, marcaje.nombrePosicion)">
+                            {{ marcaje.numeroPosicion }} - {{ marcaje.nombrePosicion }}</td>
+                        <td>{{ marcaje.tipoMarcaje }}</td>
+                        <td>{{ marcaje.tipoRegistro }}</td>
+                        <td>{{ marcaje.bateria }}%</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="tCenter">
+                <pagination-controls (pageChange)="pageChanged($event)" directionLinks="true" autoHide="true"
+                    responsive="true" previousLabel="{{ comun.RECURSOS.LISTAR.paginaAnterior }}"
+                    nextLabel="{{ comun.RECURSOS.LISTAR.paginaSiguiente }}"></pagination-controls>
+            </div>
+        </div>
+    </ng-template>
+</div>
+<div class="clear"></div>
+<app-mostrar-mapa [settings]="configuracionMapa" #mostrarMapaModalViewChild></app-mostrar-mapa>
+<br>
+<div class="clear"></div>

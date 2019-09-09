@@ -1,0 +1,52 @@
+<div class="header">
+  <div class="tblHeader">
+    <div class="headerMenu" *ngIf="authService.isAuthenticated()">
+      <div id="hamburger" (click)="showMenuPrincipal();">
+        <img src="./assets/img/btn_hamburguer.svg" alt="Menú principal" class="imgHamburgesa">
+      </div>
+    </div>
+    <div class="headerLogo">
+      <a aria-label="link-home" [routerLink]="['/']">
+        <img src="./assets/img/logo-sociom.png" id="imgLogo" alt="">
+      </a>
+    </div>
+    <div class="headerUser" *ngIf="authService.isAuthenticated()" (click)="showLogOut();">
+      <div>
+        <div class="name">
+          <b>{{ empleadoLogeado.nombre | uppercase }}</b><br>
+          <span><small>{{ empleadoLogeado.puesto | uppercase }}</small></span>
+        </div>
+
+        <div class="pic-name cursor" *ngIf="imagePath; else imagenDefault" >
+          <img class="pic imageUserHeader"  [src]="imagePath" alt="">
+        </div>
+        <ng-template #imagenDefault>
+          <div class="pic-name cursor" *ngIf="!comun.cargandoPrincipal">
+            <div class="pic" style="background-image: url('./assets/img/user.jpg');"></div>
+          </div>
+        </ng-template>
+
+        <div class="user-menu cursor" *ngIf="!comun.cargandoPrincipal">
+          <div><img src="./assets/img/btn_desp_menu.jpg" class="configuraciones" alt=""></div>
+        </div>
+      </div>
+    </div>
+    <div class="contConfig" *ngIf="authService.isAuthenticated()">
+      <div class="divConfig">
+        <a aria-label="toggle-logout" class="divConfig1 cinco cursor" (click)="cerrarSesion();">
+          <div>Salir</div>
+          <div><img src="./assets/img/ico5.svg" class="imgConfig imgIco5" alt=""></div>
+        </a>
+      </div>
+    </div>
+
+    <div class="headerUser" *ngIf="!authService.isAuthenticated()">
+        <div>
+          <div class="textoLogin cursor">
+            <a aria-label="link-login" (click)="login()"><b>Inicio de sesión</b></a>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+<ngx-loading [show]="comun.cargandoPrincipal" [config]="{ fullScreenBackdrop: true }"></ngx-loading>

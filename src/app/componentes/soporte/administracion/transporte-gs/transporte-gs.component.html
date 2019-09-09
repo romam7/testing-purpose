@@ -1,0 +1,74 @@
+<div class="contSecc">
+  <div class="botones">
+    <button class="btn btnAmarillo btnAgregaConductor"
+      (click)="showModal('modalAltaConductor', '')">{{ comun.RECURSOS.TRANSPORTE.agregarConductor }}</button>
+  </div>
+
+  <div class="clear"></div>
+  <ng-template #customLoadingTemplate>
+    <div class="custom-class">
+      <h3>
+        {{ cargandoTexto }}
+        <br><br><br><br>
+      </h3>
+      <button class="btn btnV" (click)="cancelarCarga()">
+        {{ comun.RECURSOS.COMUNES.cancelar }}
+      </button>
+    </div>
+  </ng-template>
+  <ngx-loading [show]="comun.loading" [template]="comun.loadingTemplate"></ngx-loading>
+
+  <div class="clear"></div>
+  <div class="scroll">
+    <table class="tblGeneral1">
+      <tbody>
+        <tr>
+          <th><b>No. empleado</b></th>
+          <th><b>No. licencia</b></th>
+          <th><b>Vigencia</b></th>
+          <th><b>Estatus</b></th>
+          <th><b>Fecha registro</b></th>
+          <th></th>
+        </tr>
+        <tr *ngFor="let conductor of listadoConductores.conductores | paginate: comun.configPaginacion">
+          <td [ngClass]="{'selectedRow': conductor.numeroEmpleado === conductorEditado}">
+            {{ conductor.numeroEmpleado }}
+          </td>
+          <td [ngClass]="{'selectedRow': conductor.numeroEmpleado === conductorEditado}">{{ conductor.noLicencia }}
+          </td>
+          <td [ngClass]="{'selectedRow': conductor.numeroEmpleado === conductorEditado}">{{ conductor.vigencia }}</td>
+          <td [ngClass]="{'selectedRow': conductor.numeroEmpleado === conductorEditado}">
+            {{ (conductor.estatusConductor == 1) ? 'ACTIVO' : 'INACTIVO'  }}</td>
+          <td [ngClass]="{'selectedRow': conductor.numeroEmpleado === conductorEditado}">
+            {{ conductor.fechaRegistro }}
+          <td>
+            <a aria-label="link-desac-con" *ngIf="conductor.estatusConductor == 1" class="float-right btnEliminar"
+              (click)="showModal('modalDesactivarEmpleado', conductor)"
+              title="{{ comun.RECURSOS.LISTAR.titleDesactivar }}"></a>
+            <a aria-label="link-rea-cond" *ngIf="conductor.estatusConductor == 3" class="float-right btnReactivar"
+              (click)="showModal('modalReactivarEmpleado', conductor)"
+              title="{{ comun.RECURSOS.LISTAR.titleActivar }}"></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="tCenter">
+      <pagination-controls (pageChange)="pageChanged($event)" directionLinks="true" autoHide="true" responsive="true"
+        previousLabel="{{ comun.RECURSOS.LISTAR.paginaAnterior }}"
+        nextLabel="{{ comun.RECURSOS.LISTAR.paginaSiguiente }}"></pagination-controls>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>
+<div class="clear"></div>
+
+<app-reactiva-desactiva-usuario [settings]="configuracionDesactivar"
+  (okFunction)="desactivarConductor(conductorSeleccionado, 3)" #desactivarEmpleadoModalViewChild>
+</app-reactiva-desactiva-usuario>
+<app-reactiva-desactiva-usuario [settings]="configuracionReactivar"
+  (okFunction)="desactivarConductor(conductorSeleccionado, 1)" #reactivarEmpleadoModalViewChild>
+</app-reactiva-desactiva-usuario>
+<app-alta-conductor [settings]="configuracionAlta" (okFunction)="detectaConductorEditado($event)"
+  #altaConductorModalViewChild></app-alta-conductor>
+<br>
+<div class="clear"></div>

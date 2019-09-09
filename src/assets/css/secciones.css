@@ -1,0 +1,952 @@
+.w98 {
+    width: 98%;
+    margin: auto;
+}
+
+.w80 {
+    width: 80% !important;
+    margin: auto;
+}
+
+.w94 {
+    width: 94% !important;
+    margin: auto;
+}
+
+.w200 {
+    width: 200px !important;
+    margin: auto;
+}
+
+.w87 {
+    width: 87%;
+    margin: 0 auto;
+    position: relative;
+    height: 25px;
+}
+
+.w88 {
+    width: 87%;
+    margin: 0 auto;
+}
+
+.w102 {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    height: 25px;
+}
+
+.preAuth {
+    width: 100%;
+    margin: auto;
+    margin-top: 0px;
+    background-image: url(/img/fondo.jpg);
+    height: 100%;
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+}
+
+.preAuth2 {
+    display: none;
+}
+
+.contHome {
+    width: 100%;
+    margin: auto;
+    margin-top: 0px;
+    background-image: url(/img/home.jpg);
+    height: 100%;
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    height: 87%;
+}
+
+.contSecc {
+    width: 96%;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.MenuSecc {
+    width: 70%;
+    float: left;
+}
+
+.w18 {
+    width: 20%;
+}
+
+.m10 {
+    padding: 11px 10px 0px 10px !important;
+}
+
+.m10 td {
+    margin-top: 10px !important;
+}
+
+.m {
+    margin: auto !important;
+    float: none !important;
+}
+
+img.imgLogo1 {
+    width: 40px;
+}
+
+img.imgLogo2 {
+    width: 100px;
+    padding: 0px 20px;
+}
+
+img.imgLogo3 {
+    width: 66px;
+    padding: 0px 20px;
+}
+
+.tblSecciones {
+    width: 200px;
+}
+
+.tblSecciones tr td {
+    padding: 10px;
+    color: #333333;
+    font-size: 14px;
+}
+
+.tblSecciones tr td:nth-child(1), .tblSecciones tr td.act {
+    font-family: 'Avenir_Next_Bold';
+}
+
+.tblSecciones tr td:nth-child(2), .tblSecciones tr td:nth-child(3), .tblSecciones tr td:nth-child(4) {
+    width: 50px;
+    cursor: pointer;
+}
+
+img.imgCuadrV {
+    padding: 0px 5px 1px 0px;
+}
+
+.titSec {
+    border-bottom: 2px solid #ffcd00;
+    padding: 22px 2% 5px 2%;
+    font-family: 'AvenirNextLTPro-Medium';
+    font-size: 16px;
+    text-align: left;
+    width: 95%;
+    margin: auto;
+    color: #333333;
+}
+
+.titSecConductor {
+    border-bottom: 2px solid #ffcd00;
+    padding: 5px 2% 5px 2%;
+    font-family: 'AvenirNextLTPro-Medium';
+    font-size: 16px;
+    text-align: left;
+    width: 95%;
+    margin: auto;
+    color: #333333;
+}
+
+.titSecNotificaciones {
+    border-bottom: 2px solid #ffcd00;
+    padding: 10px 2% 5px 2%;
+    font-family: 'AvenirNextLTPro-Medium';
+    font-size: 16px;
+    text-align: left;
+    width: 530px;
+    margin: auto;
+    color: #333333;
+}
+
+.titSec1 {
+    padding: 10px 2% 5px 1%;
+    font-family: 'AvenirNextLTPro-Medium';
+    font-size: 16px;
+    text-align: left;
+    width: 95%;
+    margin: auto;
+    color: #333333;
+}
+
+.titSec2 {
+    padding: 10px 2% 5px 2%;
+    font-family: 'AvenirNextLTPro-Medium';
+    font-size: 16px;
+    text-align: left;
+    width: 95%;
+    margin: auto;
+    color: #333333;
+}
+
+.titGF {
+    background-color: #d3d1d2;
+    color: #000;
+    padding: 5px 2%;
+    font-weight: bold;
+    margin: 10px 0px;
+}
+
+.gris {
+    width: 94%;
+    margin: 0px auto;
+    padding: 14px 2%;
+    background-color: #faf9f9;
+    -moz-box-shadow: 0 0px 1px rgb(226, 222, 222);
+    -webkit-box-shadow: 0 0px 1px rgb(226, 222, 222);
+    box-shadow: 0 0px 1px rgb(226, 222, 222);
+}
+
+.gris1 {
+    width: 98%;
+    margin: 0px auto;
+    padding: 14px 0%;
+    background-color: #faf9f9;
+    -moz-box-shadow: 0 0px 1px rgb(226, 222, 222);
+    -webkit-box-shadow: 0 0px 1px rgb(226, 222, 222);
+    box-shadow: 0 0px 1px rgb(226, 222, 222);
+}
+
+.tblSeccion {
+    width: 100%;
+    margin: auto;
+}
+
+.tblSeccion tr:nth-child(even) td {
+    padding: 0px 0px 13px 12px;
+    color: #8a8a8a;
+}
+
+.tblSeccion tr td {
+    padding: 0px 10px;
+    color: #000000;
+    text-align: left;
+}
+
+.botones {
+    text-align: center;
+}
+
+.btnG {
+    height: 29px;
+    line-height: 29px;
+    text-align: center;
+    display: inline-block;
+    border: none;
+    text-decoration: none;
+    background-color: #b2b1ab;
+    color: #333333;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    width: 130px;
+    padding-left: 20px;
+}
+
+.btnCancelar {
+    background-image: url(../img/cancelar-white.png);
+    background-repeat: no-repeat;
+    background-position: 8%;
+    background-size: 25px;
+    cursor: pointer;
+}
+
+.btnV {
+    height: 29px;
+    line-height: 29px;
+    text-align: center;
+    display: inline-block;
+    border: none;
+    text-decoration: none;
+    background-color: #28a745;
+    color: #ffffff;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 130px;
+}
+
+.btnGuardar {
+    background-image: url(../img/guardar-white.png);
+    background-repeat: no-repeat;
+    background-position: 8%;
+    background-size: 19px;
+    cursor: pointer;
+}
+
+.btnSendNotificacion {
+    background-image: url(../img/enviar-notificacion-24-white.png);
+    background-repeat: no-repeat;
+    background-position: 8%;
+    background-size: 19px;
+    cursor: pointer;
+}
+
+.btnAgregaDestinatarios {
+    padding: 0px 0px 0px 20px;
+    background-image: url(../img/destinatarios-32-white.png);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: 25px;
+    cursor: pointer !important;
+    float: right;
+}
+
+.btnLimpiaDestinatarios {
+    padding: 0px 0px 0px 20px;
+    background-image: url(../img/limpia-destinos-32-white.png);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: 22px;
+    cursor: pointer !important;
+    float: left;
+}
+
+.btnDestinos {
+    height: 30px;
+    line-height: 29px;
+    text-align: center;
+    display: inline-block;
+    border: none;
+    text-decoration: none;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.btnEliminaDestinos {
+    height: 30px;
+    line-height: 29px;
+    text-align: center;
+    display: inline-block;
+    border: none;
+    text-decoration: none;
+    background-color: #dc5246;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-right: 3px;
+    width: 35px;
+}
+
+.btnEliminaSeleccionado {
+    padding: 0px 0px 0px 20px;
+    background-image: url(../img/eliminar-48-red.png);
+    background-repeat: no-repeat;
+    background-size: 16px;
+    cursor: pointer !important;
+}
+
+.btnEliminar {
+    padding: 5px 0px 8px 30px;
+    background-position-y: 3px;
+    background-image: url(../img/eliminar-48-red.png);
+    background-repeat: no-repeat;
+    background-size: 24px;
+    cursor: pointer !important;
+}
+
+.btnReactivar {
+    padding: 5px 0px 8px 30px;
+    background-position-y: 3px;
+    background-image: url(../img/reactivar-48-blue.png);
+    background-repeat: no-repeat;
+    background-size: 24px;
+    cursor: pointer !important;
+}
+
+.btnEditar {
+    padding: 5px 0px 8px 30px;
+    background-position-y: 3px;
+    background-image: url(../img/editar-48-green.png);
+    background-repeat: no-repeat;
+    background-size: 24px;
+    cursor: pointer !important;
+}
+
+.btnAmarillo {
+    height: 35px;
+    line-height: 29px;
+    text-align: center;
+    display: inline-block;
+    border: none;
+    text-decoration: none;
+    background-color: #F2C100;
+    color: #67656f;
+    cursor: pointer;
+	border-radius: 4px;
+    width: 150px;
+}
+
+.btnAgregaConductor {
+    padding: 0px 0px 0px 20px;
+    background-image: url(../img/agregar-conductor-48-gray.png);
+    background-repeat: no-repeat;
+    background-position: 4%;
+    background-size: 21px;
+    cursor: pointer !important;
+}
+
+.btnAgregaPosicion {
+    padding: 0px 0px 0px 20px;
+    background-image: url(../img/posicion-48-dark-gray.png);
+    background-repeat: no-repeat;
+    background-position: 4%;
+    background-size: 21px;
+    cursor: pointer !important;
+}
+
+.calendarioAsis {
+    float: left;
+    margin-left: 11%;
+    margin-bottom: 2%;
+}
+
+.scrollY {
+    max-height: 410px;
+    overflow-y: scroll;
+    overflow: auto;
+}
+
+.btnN {
+    height: 29px;
+    line-height: 29px;
+    text-align: center;
+    display: inline-block;
+    border: none;
+    text-decoration: none;
+    background-color: #ffc107;
+    color: #000;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    width: 130px;
+}
+
+a.btnElim {
+    height: 29px;
+    text-align: right;
+    display: inline-block;
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
+    padding: 3px 5px;
+    width: 20px;
+    background-image: url(/img/eliminar.png);
+    background-repeat: no-repeat;
+    background-position: 3%;
+    background-size: 17px;
+}
+
+a.btnR1 {
+    background-color: #ff000073;
+}
+
+.contG {
+    width: 100%;
+    margin: auto;
+}
+
+.contM {
+    width: 500px;
+    margin: auto;
+}
+
+.tblGeneral {
+    width: 93%;
+    padding: 14px 1%;
+    margin: 20px auto;
+    min-width: 850px;
+}
+
+.tblGeneral tr th {
+    padding: 5px 10px 6px 10px;
+    color: #8a8a8a;
+    text-align: center;
+    font-weight: 100;
+    border-bottom: 2px solid #ffcd00;
+    font-size: 14px;
+}
+
+.tblGeneral tr th div {
+    width: 50%;
+    float: left;
+    display: block;
+}
+
+.tblGeneral tr td {
+    padding: 4px;
+    color: #606664;
+    font-size: 14px;
+    text-align: center;
+    border-bottom: 3px solid #ffffff;
+}
+
+.tblGeneral tr:nth-child(even) td {
+    background-color: #f3f3f3;
+}
+
+.tblGeneral tr:nth-child(odd) td {
+    background-color: #fafafa;
+}
+
+.tblGeneral tr:hover td, .tdSelect {
+    background-color: #a4a4a4 !important;
+    cursor: pointer;
+    color: #fff
+}
+
+tr.tdSelect td {
+    background-color: #6c757d !important;
+    cursor: pointer;
+    color: #fff
+}
+
+.selectedRow {
+    color: green !important;
+    font-weight: bold;
+}
+
+.circulo {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    float: left;
+    margin: 3px 5px 0px 5px;
+}
+
+/**tblGeneral1 */
+
+.tblGeneral1 {
+    width: 66%;
+    padding: 14px 1%;
+    margin: 20px auto;
+    min-width: 850px;
+}
+
+.tblGeneral1 tr {
+    height: 50px;
+}
+
+.altoFilaTr {
+    height: 50px !important;
+}
+
+.tblGeneral1 tr th {
+    padding: 5px 10px 6px 10px;
+    color: #8a8a8a;
+    text-align: center;
+    font-weight: 100;
+    border-bottom: 2px solid #ffcd00;
+    font-size: 14px;
+}
+
+.tblGeneral1 tr th div {
+    width: 50%;
+    float: left;
+    display: block;
+}
+
+.tblGeneral1 tr td {
+    padding: 4px;
+    color: #606664;
+    font-size: 14px;
+    text-align: center;
+    border-bottom: 3px solid #ffffff;
+}
+
+.tblGeneral1 tr:nth-child(even) td {
+    background-color: #f3f3f3;
+}
+
+.tblGeneral1 tr:nth-child(odd) td {
+    background-color: #fafafa;
+}
+
+.tblGeneral1 tr:hover td, .tdSelect {
+    background-color: #a4a4a4 !important;
+    cursor: pointer;
+    color: #fff
+}
+/***/
+
+.cV {
+    background-color: #28a745;
+}
+
+.cN {
+    background-color: #ffc107;
+}
+
+.cR {
+    background-color: #dc3545;
+}
+
+.cA {
+    background-color: #007bff;
+}
+
+.cD {
+    background-color: #6c757d;
+}
+
+.cont5 {
+    width: 96%;
+    margin: auto;
+}
+
+.div5 {
+    width: 180px;
+    display: inline-block;
+    margin-right: 1%;
+}
+
+.div20 {
+    width: 18%;
+    float: left;
+    margin: 1%;
+    height: 50px;
+}
+
+.div23 {
+    width: 23%;
+    float: left;
+    margin: 1%;
+    text-align: left;
+}
+
+.div40, .div41 {
+    width: 38%;
+    float: left;
+    margin: 1%;
+    height: 50px;
+}
+
+.AdjuntarFotos {
+    width: 98%;
+    float: left;
+    margin: 1%;
+}
+
+.div50 {
+    width: 48%;
+    float: left;
+    margin: 1%;
+}
+
+ul.nav li {
+    display: inline-block;
+    padding: 10px;
+}
+
+ul.nav li a {
+    text-decoration: none;
+    color: #333333;
+}
+
+ul.nav li.active, ul.nav li:nth-child(1) {
+    font-family: 'Avenir_Next_Bold';
+    color: #333333;
+}
+
+ul.nav li a img {
+    padding: 0px 7px 1px 0px;
+}
+
+ul.nav li a img.imgCheck {
+    padding: 5px 7px 0px 0px;
+    margin-bottom: -5px;
+}
+
+.desac {
+    color: #ccc;
+    cursor: none;
+    pointer-events: none;
+    filter: opacity(50%);
+    -webkit-filter: opacity(50%);
+}
+
+.desac1 {
+    color: #ccc;
+    cursor: none;
+}
+
+.tblGeneral tr.desac td, .tblGeneral tr.desac td a {
+    color: #ccc;
+}
+
+.txtRojo {
+    color: #ff0000;
+    font-size: 11px;
+}
+
+.textoGrisOscuro {
+    color: #67656f;
+}
+
+.perfilHeader {
+    float: center;
+    text-align: center;
+    font-family: 'Avenir_Next_Demi_Bold';
+    color: #333333;
+}
+
+.perfil {
+    margin-left: 10%;
+    width: 90%;
+}
+
+.fotoPerfil {
+    width: 40%;
+}
+
+.fotoPerfil img {
+    width: 180px;
+}
+
+.informacionPerfil {
+    width: 50%;
+}
+
+.ligaConsulta {
+    color: #606664;
+}
+
+.unclick {
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+    pointer-events: none;
+}
+
+.paginador {
+    display: inline-block;
+    margin-left: 15px;
+}
+
+.paginador a {
+    color: #d4d3d3;
+    text-decoration: none;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    text-align: center;
+    line-height: 20px;
+    border: 1px solid transparent;
+}
+
+.paginador a.on {
+    color: #4c4c4c;
+    font-weight: bolder;
+}
+
+.paginador a:hover {
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+.paginador1 {
+    padding: 1%;
+}
+
+.paginador a img {
+    width: 7px;
+}
+
+.paginador a:nth-child(1) {
+    width: 8px;
+    margin: 0px;
+}
+
+.paginador a:nth-child(2) {
+    width: 8px;
+    margin: 0px;
+}
+
+.paginador a:nth-child(6) {
+    width: 8px;
+    margin: 0px;
+}
+
+.paginador a:nth-child(7) {
+    width: 8px;
+    margin: 0px;
+}
+
+.divAgrega {
+    width: 74%;
+    float: left;
+}
+
+.foto {
+    display: block;
+    width: 100%;
+    /* background-color: red; */
+    height: 32px;
+}
+
+.unclick {
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+    pointer-events: none;
+}
+
+#menuPrincipal .w87 input#buscaRFC {
+    position: absolute;
+    top: 0px;
+    left: 0px
+}
+
+/*Se agrego -v5*/
+
+.divModal {
+    width: 90%;
+    margin: auto;
+    text-align: center;
+}
+
+.divModal1 {
+    display: flex;
+}
+
+.divModal2 {
+    width: 207px;
+    padding: 5px 2%;
+}
+
+.tblBusEq {
+    width: 100%;
+    padding: 14px 1%;
+    margin: 0px auto;
+    text-align: left;
+}
+
+.tblBusEq tr td {
+    padding: 5px 10px 6px 10px;
+}
+
+.tblBusEq tr th {
+    padding: 7px 10px 7px 10px;
+    color: #606664;
+    font-size: 14px;
+}
+
+.tblBusEq tr:nth-child(even) td {
+    background-color: #f3f3f3;
+}
+
+.tblBusEq tr:nth-child(odd) td {
+    background-color: #fafafa;
+}
+
+.tblBusEq tr:hover td {
+    background-color: rgba(255, 0, 0, 0.48) !important;
+    cursor: pointer;
+    color: #fff
+}
+
+.tblBusEq tr.tdSelect td {
+    background-color: rgba(255, 0, 0, 0.48) !important;
+    cursor: pointer;
+    color: #fff
+}
+
+/*Se agrego -v5*/
+
+@media screen and (max-width: 700px) {
+    .div10 {
+        width: 100%;
+        height: 50px;
+    }
+    .paginador {
+        display: block;
+        margin: 15px;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width:1250px) {
+    .div20 {
+        width: 23%;
+        height: 50px;
+    }
+    .div40 {
+        width: 48%;
+        height: 50px;
+    }
+    .div41 {
+        width: 48%;
+    }
+}
+
+@media screen and (max-width:700px) {
+    .div20, .div40 {
+        width: 48%;
+        height: 50px;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .contHome {
+        width: 100%;
+        margin: auto;
+        margin-top: 0px;
+        background-image: url(/img/home.jpg);
+        height: 100%;
+        position: absolute;
+        background-size: 100%;
+        background-position: inherit;
+        background-repeat: no-repeat;
+        height: 87%;
+    }
+    a.btnAgre, a.btnElim {
+        width: 125px;
+        font-size: 13px;
+        margin: 10px 5px;
+    }
+    .botones {
+        float: none !important;
+    }
+    .MenuSecc {
+        width: 49%;
+    }
+
+    .contM {
+        width: 400px;
+    }
+    
+    .titSecNotificaciones {
+        width: 430px;
+    }
+}
+
+@media screen and (max-width:460px) {
+    .contM {
+        width: 340px;
+    }
+    
+    .titSecNotificaciones {
+        width: 370px;
+    }
+}
+
+@media screen and (max-width:400px) {
+    img.imgLogo2 {
+        padding: 0px 14%;
+    }
+    .div20, .div40, .div41, .div50 {
+        width: 98%;
+    }
+
+    .contM {
+        width: 300px;
+    }
+    
+    .titSecNotificaciones {
+        width: 310px;
+    }
+}

@@ -1,0 +1,87 @@
+<div class="contSecc">
+  <div>
+    <div class="titSecNotificaciones">{{ comun.RECURSOS.NOTIFICACION.tituloHeaderNotificacion }}</div>
+    <div class="gris contM">
+      <p class="instrucNotificacion">{{ comun.RECURSOS.NOTIFICACION.instruccion }}</p>
+      <br>
+      <form #notificacionForm="ngForm" class="tCenter scrollY">
+        <input aria-label="notificacion.titulo" type="text" class="inputNotificacion" (change)="notificacion.titulo = notificacion.titulo.trim()"
+          [(ngModel)]="notificacion.titulo" name="titulo" #titulo="ngModel" required autofocus
+          (keydown)="prevenirDefault($event);"
+          [ngClass]="{'invalid': (titulo.touched || titulo.dirty) && titulo.errors}" [disabled]="desactivarControl">
+        <br>{{ comun.RECURSOS.NOTIFICACION.tagTitulo }}<br>
+
+        <textarea aria-label="mensaje" style="font-family: Arial" cols="30" rows="10" requiredc class="textAreaNotificacion" id="mensaje"
+          (change)="notificacion.cuerpoMensaje = notificacion.cuerpoMensaje.trim(); validaCampo();" minlength="{{ minLengthRequerido }}"
+          [(ngModel)]="notificacion.cuerpoMensaje" name="cuerpoMensaje" #cuerpoMensaje="ngModel" maxlength="100"
+          [ngClass]="{'invalid': (cuerpoMensaje.touched || cuerpoMensaje.dirty) && cuerpoMensaje.errors}"
+          [disabled]="desactivarControl"></textarea>
+        <br>{{ comun.RECURSOS.NOTIFICACION.mensaje }}<br>
+        <br>
+
+        <div>
+          <input aria-label="empleado" type="text" class="inputNotificacion" [(ngModel)]="empleado" name="empleado" list="empleados-list"
+            autocomplete="off" (keydown)="onKeydown($event)"
+            (focus)="comun.creaAlertaInfo(comun.RECURSOS.NOTIFICACION.alertaBuscarEmpleado)"
+            (change)="agregarDestinatario($event.target.value)" [disabled]="desactivarControl" />
+          <datalist id="empleados-list"
+            *ngIf="empleadosBuscar.empleados.length !== undefined && empleadosBuscar.empleados.length > 0">
+            <option *ngFor="let empleado of empleadosBuscar.empleados; trackBy: comun.trackPorEmpleado" [value]="empleado.numeroEmpleado">
+              {{ empleado.nombre }}</option>
+          </datalist>
+          <br>{{ comun.RECURSOS.EDITAR_EMP.tagNoEmpleado }}<br>
+          <br>
+        </div>
+
+        <div>
+          <input aria-label="file" type="file" id="file" class="inputfile" (change)="archivoSeleccionado($event)" #archivoElegido
+            accept=".xlsx" (click)="archivoElegido.value = null" />
+          <label for="file" class="btn btnAgregaDestinatarios btnDestinos"
+            title="{{ comun.RECURSOS.NOTIFICACION.titleCargaMasivaDestinos }}"></label>
+        </div>
+        <ng-template #customLoadingTemplate>
+          <div class="custom-class">
+            <h3>
+              {{ cargandoTexto }}
+              <br><br><br><br>
+            </h3>
+            <button class="btn btnV" (click)="comun.cancelarCarga(suscriptor)">
+              {{ comun.RECURSOS.COMUNES.cancelar }}
+            </button>
+          </div>
+        </ng-template>
+        <ngx-loading [show]="comun.loading" [template]="comun.loadingTemplate"></ngx-loading>
+
+        <b>{{ comun.RECURSOS.NOTIFICACION.tagDestinatarios }}</b>
+        <b *ngIf="notificacion.lstEmpleados.length > 0"
+          style="background-color: #ffcd00; color: #67656f; border-radius: 6px; margin-left: 5px;">{{ notificacion.lstEmpleados.length }}
+        </b>
+        <button *ngIf="notificacion.lstEmpleados.length > 1" class="btn btnLimpiaDestinatarios btnEliminaDestinos"
+          title="{{ comun.RECURSOS.NOTIFICACION.titleEliminaDestinos }}" (click)="limpiaDestinos();"></button>
+        <ul style="padding: 5px;">
+          <li *ngIf="notificacion.lstEmpleados.length == 0">
+            {{ comun.RECURSOS.NOTIFICACION.sinDestinos }}
+          </li>
+          <li class="displayDestinatarios" *ngFor="let empleado of notificacion.lstEmpleados">
+            <span class="btnEliminaSeleccionado" (click)="eliminarSeleccionado(empleado)">
+              {{ empleado }} <p *ngIf="notificacion.lstEmpleados.length > 1" class="displayDestinatarios marginR">
+                |
+              </p>
+            </span>
+          </li>
+        </ul>
+        <div class="clear"></div>
+        <div class="clear"></div>
+      </form>
+      <div class="botones">
+        <button class="btn btnG btnCancelar" type="reset"
+          (click)="comun.redirigeAListado();">{{ comun.RECURSOS.COMUNES.cancelar }}</button>
+        <button class="btn btnV btnSendNotificacion" type="submit"
+          [ngClass]="{'desac': !notificacionForm.form.valid || desactivarControl }"
+          (click)="enviarNotificacion()">{{ comun.RECURSOS.COMUNES.enviar}}</button>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<div class="clear"></div>

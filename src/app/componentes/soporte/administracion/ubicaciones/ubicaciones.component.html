@@ -1,0 +1,81 @@
+<div class="contSecc">
+    <div class="botones">
+        <input aria-label="" type="text" class="buscarEmpleado" [(ngModel)]="filtro" name="filtro"
+            placeholder="{{ comun.RECURSOS.UBICACIONES.buscarPoi }}" (keydown)="buscarPosicion($event)" maxlength="50"
+            (change)="filtro = filtro.trim()" [disabled]="comun.loading || comun.cargandoPrincipal"
+            (input)="limpiarResultados($event.target.value);" autofocus>
+
+        <button class="btn btnAmarillo btnAgregaPosicion"
+            (click)="showModal('modalAltaPosicion', '')">{{ comun.RECURSOS.UBICACIONES.agregarPosicion }}</button>
+    </div>
+
+    <div class="clear"></div>
+    <h3 class="tCenter" *ngIf="!(posicionesFiltro.posiciones && posicionesFiltro.posiciones.length); else tabla">
+        <br>
+        {{ comun.RECURSOS.UBICACIONES.instruccionesBuscar }}
+    </h3>
+
+    <ng-template #customLoadingTemplate>
+        <div class="custom-class">
+            <h3>
+                {{ cargandoTexto }}
+                <br><br><br><br>
+            </h3>
+            <button class="btn btnV" (click)="cancelarCarga()">
+                {{ comun.RECURSOS.COMUNES.cancelar }}
+            </button>
+        </div>
+    </ng-template>
+    <ngx-loading [show]="comun.loading" [template]="comun.loadingTemplate"></ngx-loading>
+
+    <ng-template #tabla>
+        <div class="clear"></div>
+        <div class="scroll">
+            <table class="tblGeneral1">
+                <tbody>
+                    <tr>
+                        <th><b>No. posicion</b></th>
+                        <th><b>Nombre</b></th>
+                        <th><b>Latitud</b></th>
+                        <th><b>Longitud</b></th>
+                        <th><b>Rango</b></th>
+                        <th></th>
+                    </tr>
+                    <tr *ngFor="let posicion of posicionesFiltro.posiciones | paginate: comun.configPaginacion">
+                        <td [ngClass]="{'selectedRow': posicion.numeroPosicion === posicionEditada}">
+                            {{ posicion.numeroPosicion }}
+                        </td>
+                        <td [ngClass]="{'selectedRow': posicion.numeroPosicion === posicionEditada}">
+                            {{ posicion.nombrePosicion }}</td>
+                        <td [ngClass]="{'selectedRow': posicion.numeroPosicion === posicionEditada}">
+                            {{ posicion.latitud }}
+                        </td>
+                        <td [ngClass]="{'selectedRow': posicion.numeroPosicion === posicionEditada}">{{ posicion.longitud }}
+                        </td>
+                        <td [ngClass]="{'selectedRow': posicion.numeroPosicion === posicionEditada}">
+                            {{ posicion.rangoAceptado }}</td>
+                        <td>
+                            <a aria-label="link-edit-ubi" class="float-right btnEditar"
+                                (click)="showModal('modalEditaPosicion', posicion)"
+                                title="{{ comun.RECURSOS.LISTAR.titleEditarInformacion }}"></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="tCenter">
+                <pagination-controls (pageChange)="pageChanged($event)" directionLinks="true" autoHide="true"
+                    responsive="true" previousLabel="{{ comun.RECURSOS.LISTAR.paginaAnterior }}"
+                    nextLabel="{{ comun.RECURSOS.LISTAR.paginaSiguiente }}"></pagination-controls>
+            </div>
+        </div>
+    </ng-template>
+    <div class="clear"></div>
+</div>
+<div class="clear"></div>
+
+<app-alta-posicion-valida [settings]="configuracionAltaPosicion" (okFunction)="detectaPosicionEditada($event)"
+    #altaPosicionModalViewChild></app-alta-posicion-valida>
+<app-alta-posicion-valida [settings]="configuracionEditaPosicion" (okFunction)="detectaPosicionEditada($event)"
+    #editaPosicionModalViewChild></app-alta-posicion-valida>
+<br>
+<div class="clear"></div>

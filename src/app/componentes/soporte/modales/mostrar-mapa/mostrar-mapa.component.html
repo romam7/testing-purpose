@@ -1,0 +1,17 @@
+<div id="{{ settings.idModal }}" class="modal">
+    <div class="cuadroM">
+        <a aria-label="link-cerrar-map" class="pointerClose" (click)="closeModal()">
+            <img src="./assets/img/cerrar.png" class="cerrar" alt="">
+        </a>
+        <div class="titModal"><b>{{ settings.title }}</b></div>
+        <div class="clear"></div>
+        <div class="espacio"></div>
+
+        <div class="tCenter">
+            <agm-map [latitude]="latitud" [longitude]="longitud" [zoom]="14" [zoomControl]="true">
+                <agm-marker [latitude]="latitud" [longitude]="longitud" [markerDraggable]="false"
+                    [title]="nombrePosicion"></agm-marker>
+            </agm-map>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<!-- Modal -->
+<div id="{{ settings.idModal }}" class="modal">
+  <div class="cuadroCh">
+    <a aria-label="link-cerrar-emp" class="pointerClose" (click)="closeModal()">
+      <img src="./assets/img/cerrar.png" class="cerrar" alt="">
+    </a>
+    <div class="titModal"><b>{{ settings.title }}</b></div>
+    <div class="clear"></div><br>
+
+    <div class="tCenter">
+      {{ settings.text }}
+      <br><br>
+      <div class="tCenter">
+        <a aria-label="link-cancela" class="btnG btn" (click)="cancelar()">Cancelar</a>
+        <a aria-label="link-acepta" class="btnV btn" (click)="aceptar()">Aceptar</a>
+      </div><br>
+    </div>
+
+  </div>
+</div>

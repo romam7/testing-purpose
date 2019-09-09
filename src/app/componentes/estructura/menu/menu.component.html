@@ -1,0 +1,88 @@
+<!-- Menu -->
+<div id="effect" (click)="noOcultar()" class="mismoalto ui-widget-content ui-corner-all">
+  <div id="menuPrincipal" *ngIf="authService.isAuthenticated()">
+    <div class="header-usuario tCenter">
+      <div id="inf-usuario">
+        <span>{{ comun.RECURSOS.MENU.portalSocioMAS }}</span>
+        <p>{{ comun.RECURSOS.MENU.menuPrincipal }}<br>
+      </div>
+    </div>
+    <div class="c-mright" id="menu" (click)="ocultarMenu()">
+      <ul class="l-navegacion nivel1">
+        <ng-container *ngFor="let tab of tabs">
+          <li class="has-sub">
+            <a aria-label="tab-padre" *ngIf="tab.enlace !== null; else noEnlace" [routerLink]="[tab.enlace]">
+              <p>{{ tab.tag }}</p>
+              <div class="flecha" *ngIf="tab.links.length > 0"></div>
+            </a>
+            <ng-template #noEnlace>
+              <a aria-label="tab-flecha">
+                <p>{{ tab.tag }}</p>
+                <div class="flecha" *ngIf="tab.links.length > 0"></div>
+              </a>
+            </ng-template>
+
+            <ul class="nivel2">
+              <ng-container *ngFor="let submenu of tab.links">
+                <li class="has-sub">
+                  <a aria-label="tab-hija" [routerLink]="[submenu.link]" *ngIf="submenu.link !== null; else noLinkPadre">
+                    <p>{{ submenu.tag }}</p>
+                    <div class="flechaBlanca" *ngIf="submenu.hijas.length > 0"></div>
+                  </a>
+                  <ng-template #noLinkPadre>
+                    <a aria-label="tab-hija-flecha">
+                      <p>{{ submenu.tag }}</p>
+                      <div class="flechaBlanca" *ngIf="submenu.hijas.length > 0"></div>
+                    </a>
+                  </ng-template>
+
+                  <ul class="nivel3" *ngIf="submenu.hijas.length > 0">
+                    <ng-container *ngFor="let hija of submenu.hijas">
+                      <li>
+                        <a aria-label="tab-subHija" [routerLink]="[hija.linkSub]">
+                          <p>{{ hija.tagSub }}</p>
+                        </a>
+                      </li>
+                    </ng-container>
+                  </ul>
+                </li>
+              </ng-container>
+            </ul>
+          </li>
+        </ng-container>
+      </ul>
+    </div>
+  </div>
+  <!-- MENU2 RESPONSIVO-->
+  <div class="menu-responsivo" *ngIf="authService.isAuthenticated()">
+    <dl class="accordion">
+      <ng-container *ngFor="let tab of tabs">
+        <dt *ngIf="tab.links.length > 0; else noLinks;">
+          {{ tab.tag }}
+        </dt>
+        <ng-template #noLinks>
+          <dt>
+            <a aria-label="tab-ac-padre" [routerLink]="[tab.enlace]">{{ tab.tag }}</a>
+          </dt>
+        </ng-template>
+
+        <dd *ngIf="tab.links.length > 0">
+          <dl class="accordion2">
+            <ng-container *ngFor="let submenu of tab.links">
+              <a aria-label="tab-ac-hija" [routerLink]="submenu.link">
+                {{ submenu.tag }}
+              </a>
+              <dl class="accordion3" *ngIf="submenu.hijas.length > 0">
+                <ng-container *ngFor="let hija of submenu.hijas">
+                  <a aria-label="tab-ac-subhija" [routerLink]="[hija.linkSub]">
+                    <p>{{ hija.tagSub }}</p>
+                  </a>
+                </ng-container>
+              </dl>
+            </ng-container>
+          </dl>
+        </dd>
+      </ng-container>
+    </dl>
+  </div>
+</div>
